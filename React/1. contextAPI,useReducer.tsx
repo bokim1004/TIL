@@ -49,3 +49,5 @@
   액션객체에는 type이라는 키가 필수로 포함되어야 한다. 보통 payload 키를 넣어
   type에 대한 값을 지정한다.
 </div>;
+
+<div>dispatch는 액션을 발생시키며 update를 위한 정보를 가지고 있다.</div>;
