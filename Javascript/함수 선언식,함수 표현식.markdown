@@ -27,7 +27,7 @@ var sumNumbers;
 logMessage();
 sumNumbers();
 sumNumbers = function () {
-  return 10 + 20;
+return 10 + 20;
 };
 
 <p>함수 표현식의 장점</p>;
@@ -38,15 +38,15 @@ sumNumbers = function () {
 
 //클로저는 함수를 실행하기 전에 해당 함수에 변수를 넘기고 싶을 때 사용된다.
 function tabsHandler(index) {
-  return function tabClickEvent(event) {
-    //바깥 함수인 tabsHandler()의 index인자를 여기서 접근할 수 있다.
-    console.log(index); // 탭을 클릭할 때마다 해당 탭의 index값을 표시
-  };
+return function tabClickEvent(event) {
+//바깥 함수인 tabsHandler()의 index인자를 여기서 접근할 수 있다.
+console.log(index); // 탭을 클릭할 때마다 해당 탭의 index값을 표시
+};
 }
 var tabs = document.querySelectorAll(".tab");
 var i;
 for (i = 0; i < tabs.length; i++) {
-  tabs[i].onclick = tabsHandler(i);
+tabs[i].onclick = tabsHandler(i);
 }
 
 // 위 예제는 모든 .tab요소에 클릭 이벤트를 추가하는 예제다.
@@ -54,6 +54,8 @@ for (i = 0; i < tabs.length; i++) {
 // 그런데 의문점은 위에서 사용한 것은 함수 선언식이 아닌가? 함수 선언식에도 클로저가 적용되는것인가???
 
 //좋은 예를 봐보자.
+
+```js
 var list = ["item1", "item2", "item3"];
 var i;
 var doSomethingHandler = function (itemIndex) {
@@ -65,3 +67,4 @@ var doSomethingHandler = function (itemIndex) {
 for (i = 0; i < list.length; i++) {
   list[i].onclick = doSomethingHandler(i);
 }
+```
