@@ -1,0 +1,6 @@
+### block, inline-block과 inline차이
+
+`block`: display가 block으로 설정된 요소는다음 태그는 무조건 줄바꿈이 적용되고, 가로 크기가 부모요소의 100%를 차지한다. 간단하게 말해 어떤 특정 구역을 차지한다.
+가로와 세로 크기를 지정할 수 있다. 예) div,p
+`inline`: 가로와 세로의 크기를 임의로 지정할 수 없다. text크기만큼 공간을 점유하고 줄바꿈을 하지 않는다 예)span
+`inline-block`:block속성과 inline속성을 섞어 놓은 것과 같다. blcok처럼 가로와 세로 크기를 설정할 수 있으며 inline처럼 줄바꿈을 하지 않는다.`
