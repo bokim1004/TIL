@@ -26,5 +26,34 @@ React.memo를 사용하면 어떤 컴포넌트를 어떤 Props와 함께 불렀�
 그리고 Memoization을 위해 계속 기록을 해야하므로 매번 만들어진 컴포넌트들을 기록하는 공간만 조금씩 더 차지하게 될 것이다.
 
 
+#### useMemo
+컴포넌트에 적용할 수 있는 React.memo와 달리, 복잡한 계산의 결과 값을 Memoization해 최적화하기 위한 `useMemo`훅이 있다. 
+```ts
+const items = useState([]);
+const convertedItems = useMemo(
+items.map(item => {
+...item,
+additionalData:somethingHardCalc(item)
+},[items]
+)
+}
+```
+useMemo에는 2개의 인자가 들어간다.
+첫번 째는 우리가 구동하기 원하는 함수 하나. 위에선 items에 들어있는 데이터를 변환해주는 함수가 있다, somethingHardCalc는 복잡한 계산의 함수
+그리고 두 번째 인자는 useEffect를 사용할 때처럼 deps를 설정할 수 있다. items가 변경될 떄만 첫번 째 인자에 들어있는 함수를 동작시킨다고 볼 수 있다.
+
+useMemo도 memoization을 하는데, useMemo자체에 대해 Memoization이 일어난다.
+
+useMemo라는 함수와 그 프로퍼티인 items값이 뭐가 들어오는지 확인하고 처음 보는 값이면 첫번째 인자의 함수를 구동해 그 값을 기록한다.
+만약 이전에 본 값이면 계산은 생략하고 전에 기록해둔 값을 돌려주는 방식으로 복잡한 계산을 줄일 수 있다.
+
+#### React.memo와 useMemo의 차이는 어디에 활용되는가이다.
+
+React.memo는 컴포넌트를 받아 컴포넌트를 반환한다.
+useMemo는 값을 계산하는 과정을 최적화해 값을 반환받는다.
+
+useMemo로 전달된 함수는 렌더링 중에 실행된다. 통상적으로 렌더링 중에는 하지 않는 것을 이 함수내에서 하지않는게 좋다.
+
+참고 :https://medium.com/hcleedev/web-%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80-react-memo-usememo-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0-4324a237a039
 
 
