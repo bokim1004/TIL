@@ -54,6 +54,16 @@ useMemo는 값을 계산하는 과정을 최적화해 값을 반환받는다.
 
 useMemo로 전달된 함수는 렌더링 중에 실행된다. 통상적으로 렌더링 중에는 하지 않는 것을 이 함수내에서 하지않는게 좋다.
 
+
+#### useMemo와 useCallback의 차이
+
+useMemo는 함수 호출 이후의 return값이 memoized된다.
+- 메모이제이션된 값을 반환함
+- 두 번째 파라미터인 배열요소가 변경될 때마다 첫번째 인자의 callback함수를 다시 생성하는 방식
+
+useCallback은 메모이제이션된 함수를 반환한다.
+두번째인자인 배열요소가 변경될 때마다 새로운 함수가 생성된다.
+
 참고 :https://medium.com/hcleedev/web-%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80-react-memo-usememo-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0-4324a237a039
 
 
