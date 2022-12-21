@@ -16,5 +16,25 @@ React같은 SPA웹앱을 개발하고나면 웹팩같은 모듈번들러로 코�
 
 #### React.lazy
 
-리액트에서 
-리액트에서 컴포넌트 파일을 정의하고 동적 불러오기를 
+리액트에서 컴포넌트 파일을 정의하고 동적 불러오기를 사용하면 에러가 발생한다.
+컴포넌트를 동적으로 불러오기 위해선 `React.lazy`를 사용해야 한다.
+
+```ts
+import { Suspense } from 'react';
+
+const SomeComponent = React.lazy(() => import('./SomeComponent'));
+
+const MyComponent = () => {
+  return (
+    <Suspense fallback={<div>로딩 중. . .</div>}>
+      <SomeComponent />
+    </Suspense>
+  );
+}
+
+```
+
+React.lazy는 import()구문을 반환하는 콜백함수를 인자로 받는다. React.lazy로 불러온 컴포넌트는 단독으로 쓰일 수 없고, React.Suspense컴포넌트로 하위에서 렌더링되어야 한다.
+`Suspense`컴포넌트는 fallback prop을 필수로 가진다. fallback prop은 로딩 표시기로 사용할 컴포넌트를 받는다.
+
+참고: https://velog.io/@code-bebop/dynamic-import%EC%99%80-React.lazy
