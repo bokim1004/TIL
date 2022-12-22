@@ -33,6 +33,107 @@ react query는 `데이터의 캐시 처리를 간편하게 할 수 있는 인터
 - 유저가 탭을 이동했다가 다시 돌아왔을 때 데이터를 다시 불러온다.
 - 데이터를 다시 호출할 때 응답이 오기 전까지는 이전 데이터를 계속 보여준다. 필요에 따라서는 로딩바와 같은 대안 UI를 보여주기 위해 loading state를 기본적으로 제공한다.
 
-#### axios vs React query
+#### 코드로 살펴보자
+
+```ts
+import * as React from 'react';
+import axios from 'axios';
+
+interface Iperson {
+    id: number;
+    name: string;
+    phone: string;
+    age: number;
+}
+
+const BasicLoading = (): JSX.Element => {
+
+    const [isLoading, setIsLoading] = React.useState<boolean>(false); // 로딩 state
+    const [persons, setPersons] = React.useState<Iperson[]>([]); // person state
+
+    React.useEffect(() => {
+        getPersons();
+    }, [])
+
+    const getPersons = async () => {
+        setIsLoading(true); // 로딩 중 체크
+        const res = await axios.get('http://localhost:8080/persons'); // API 호출
+
+        if(res) {
+            setIsLoading(false); // 로딩 중 체크 해제
+            setPersons(res.data); // 결과값 적재
+        }
+    }
+
+    return (
+        <div>
+            {isLoading 
+                ? <h2>Loading ...</h2>
+                : persons.map((person) => {
+                    return (
+                        <div key={person.id}>
+                            <h2>{person.id}: {person.name}</h2>
+                        </div>
+                    )
+                })}
+        </div>
+    )
+}
+
+export default BasicLoading;
+```
+
+React query를 사용하게 되면 여러 불필요한 작업을 제거할 수 있다.
+
+
+```ts
+import * as React from 'react';
+import axios from 'axios';
+import { useQuery } from 'react-query';
+
+interface Iperson {
+    id: number;
+    name: string;
+    phone: string;
+    age: number;
+}
+
+const QueryLoading = (): JSX.Element => {
+
+    const getPersons = () => {
+        const res = useQuery(['persons'], () => axios.get('http://localhost:8080/persons')); // API 호출
+
+        // 로딩 중일 경우
+        if(res.isLoading) {
+            return (
+                <h2>Loading...</h2>
+            )
+        }
+
+        // 결과값이 전달되었을 경우
+        if(res.data) {
+            const persons: Iperson[] = res.data.data;
+
+            return (
+                persons.map((person) => {
+                    return (
+                        <div key={person.id}>
+                            <h2>{person.id}: {person.name}</h2>
+                        </div>
+                    )
+                })
+            )
+        }
+    }
+
+    return (
+        <div>
+            {getPersons()}
+        </div>
+    )
+}
+
+export default QueryLoading;
+```
 
 
