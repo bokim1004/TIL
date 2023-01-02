@@ -63,6 +63,8 @@ useMemo는 함수 호출 이후의 return값이 memoized된다.
 
 useCallback은 메모이제이션된 함수를 반환한다.
 두번째인자인 배열요소가 변경될 때마다 새로운 함수가 생성된다.
+useCallback안에서 쓰는 state는 input (2번째 배열)에다가도 넣어주어야 한다. 2번째 배열값이 바뀌면 useCallback도 새로 실행된다.
+useCallback 꼭 써야 하는 경우 : `자식 컴포넌트에 함수를 넘길 때!!` 자식컴포넌트에 props로 매번 새로운 함수가 생성되면 자식컴포넌트에서는 부모로 부터 받은 props가 매번 바뀐다고 인식된다. 그러면 매번 새로 렌더링을 해버린다. 자식이 쓸데없이 매번 리렌더링이 발생하기때문에..
 
 참고 :https://medium.com/hcleedev/web-%EC%B5%9C%EC%A0%81%ED%99%94%EC%99%80-react-memo-usememo-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0-4324a237a039
 
