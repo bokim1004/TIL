@@ -9,7 +9,7 @@
 
 `client State`
  - 클라이언트에서 자체적으로 만드는 state
- - server에서 전달받은 값으로 만다는 state
+ - server에서 전달받은 값으로 만는 state
 
 external state는 리덕스, 리코일 등등
 internal state는 context api, useState가 있다.
