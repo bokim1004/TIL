@@ -36,8 +36,8 @@ setUser((prev) =>({...prev, name:input})));
 위와같이 작성하면 name값만 input값으로 변경시킬 수 있다.
 ```
 
-**3. 여러개의 input값에 대한 상태관리를 하는 법
-**- 각각의 값에 대해 useState를 만들 필요가 없다.
+**3. 여러개의 input값에 대한 상태관리를 하는 법**
+- 각각의 값에 대해 useState를 만들 필요가 없다.
 
 ```js
 const [user,setUser]=useState ({
