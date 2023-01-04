@@ -48,4 +48,4 @@ HTTP요청과 응답의 구조는 서로 닮았고 구조는 다음과 같다.
 3) 요청에 대한 모든 메타 정보가 전송되었음을 알리는 빈줄이 삽입된다.<br/>
 4) 요청에 관련된 내용이 옵션으로 들어가거나, 응답과 관련된 문서가 들어간다. 본문의 존재 유무 및 크기는 첫 줄과 HTTP 헤더에 명시된다.
 
-<p align="center"> <img src="https://velog.velcdn.com/images/chloeee/post/39e286fd-7f69-45cd-bf93-b00dc9a5fb8b/image.png"  width="500px"  alt="img"/> </p>
+<p align="center"> <img src="https://velog.velcdn.com/images/chloeee/post/39e286fd-7f69-45cd-bf93-b00dc9a5fb8b/image.png"  width="800px"  alt="img"/> </p>
