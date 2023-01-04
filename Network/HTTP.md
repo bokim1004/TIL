@@ -49,3 +49,27 @@ HTTP요청과 응답의 구조는 서로 닮았고 구조는 다음과 같다.
 4) 요청에 관련된 내용이 옵션으로 들어가거나, 응답과 관련된 문서가 들어간다. 본문의 존재 유무 및 크기는 첫 줄과 HTTP 헤더에 명시된다.
 
 <p align="center"> <img src="https://velog.velcdn.com/images/chloeee/post/39e286fd-7f69-45cd-bf93-b00dc9a5fb8b/image.png"  width="800px"  alt="img"/> </p>
+
+HTTP 메시지의 시작줄과 HTTP 헤더를 묶어서  `요청 헤드(Head)`라고 부르며, 반대로 HTTP 메시지의 페이로드는 `본문 (body)`라고 한다.
+
+#### HTTP 요청
+
+`시작줄` : HTTP요청은 서버가 특정 동작을 취하게끔 만들기 위해 클라이언트에서 전송하는 메시지이다.
+시작줄은 3가지 요소로 되어있다. <br/>
+1. HTTP메소드로 (Get,Put,Post)등을 사용해 서버가 수행해야할 동작을 나타낸다.<br/>
+2. 두번째로 오는 요청 타켓을 주로 URL,프로토콜,포트,도메인의 절대 경로로 나타낼 수도 있으며 이들은 요청 컨텍스트에 의해 특정지어진다. 
+3. 마지막으로 HTTP 버전이 들어간다. 메시지의 남은 구조를 결정하기에 응답메시지에서 써야할 HTTP 버전을 알려주는 역할을 한다.
+<br/>
+`헤더` : 요청에 들어가는 HTTP 헤더는 HTTP 헤더의 기본 구조를 따른다. 대소문자 구분없는 문자열 다음에 콜론(:)이 붙으며 그 뒤에 오는 값은 헤더에 따라 달라진다.<br/>
+헤더는 값까지 포함해 한 줄로 구성되지만 꽤 길어질 수 있다.
+다양한 종류의 요청 헤더가 있는데, 이들은 다음과 같이 몇몇 그룹으로 나눌 수 있다. <br/>
+- General 헤더: Via와 같은 헤더는 메시지 전체에 적용된다. <br/>
+- Request 헤더: User-Agent (en-US), Accept-Type와 같은 헤더는 요청의 내용을 좀 더 구체화 시키고(Accept-Language), 컨텍스를 제공하기도 하며(Referer), 조건에 따른 제약 사항을 가하기도 하면서(If-None) 요청 내용을 수정한다 <br/>
+- Entity 헤더: Content-Length와 같은 헤더는 요청 본문에 적용된다. 당연히 요청 내에 본문이 없는 경우 entity 헤더는 전송되지 않는다.
+
+<p align="center"> <img src="https://velog.velcdn.com/images/chloeee/post/3d91807b-dd81-4f92-a078-33a0000d2506/image.png"  width="800px"  alt="img"/> </p>
+
+`본문(바디)` : 본문은 요청의 마지막 부분에 들어간다. 모든 요청에 본문이 들어가지 않는다. get,head,delete처럼 리소스를 가져오는 요청은 보통 본문이 필요 없다. 일부 요청은 업데이트를 하기 위해 서버에 데이터를 전송한다. 보통 post일 경우에 그렇다. <br/>
+넓게 보면 본문은 두가지 종류로 나뉜다. <br/>
+단일-리소스 본문(single-resource bodies): 헤더 두 개(Content-Type와 Content-Length)로 정의된 단일 파일로 구성됩니다.
+다중-리소스 본문(multiple-resource bodies): 멀티파트 본문으로 구성되는 다중 리소스 본문에서는 파트마다 다른 정보를 지니게 됩니다. 보통 HTML 폼 (en-US)과 관련이 있습니다.
