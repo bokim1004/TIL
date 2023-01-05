@@ -17,3 +17,7 @@ MVI아키텍쳐 특징은 기존 MVC나 MVVM과 다른 점은 이 구성이 하�
 
 <img src="https://velog.velcdn.com/images/chloeee/post/c6a0a8a4-a107-4e27-bfc3-9dd8b3b67649/image.png" width="800" />
 
+
+### 어떻게 비즈니스 로직과 뷰로직을 분리해서 개발할 수 있을까? (참고)
+https://sairys.medium.com/react-separating-responsibilities-using-hooks-b9c90dbb3ab9
+https://www.masterborn.com/blog/Separation_of_concerns_in_react_apps
