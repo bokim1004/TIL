@@ -16,3 +16,4 @@ MVI아키텍쳐 특징은 기존 MVC나 MVVM과 다른 점은 이 구성이 하�
 `Model`은 다시 1) 변화를 감지하고 변경사항을 전파하는 영역 2) 데이터를 변화하는 로직을 구분하여 작성
 
 <img src="https://velog.velcdn.com/images/chloeee/post/c6a0a8a4-a107-4e27-bfc3-9dd8b3b67649/image.png" width="800" />
+
