@@ -80,3 +80,26 @@ for (i = 0; i < list.length; i++) {
   list[i].onclick = doSomethingHandler(i);
 }
 ```
+
+
+### 결론
+
+함수 선언식과 함수 표현식 모두 사용할 수 있지만, 함수 선언식 대신 이름이 있는 기명함수 표현식을 권장하고 있다.
+
+```js
+// bad
+function foo() {
+  // ...
+}
+ 
+// bad
+const foo = function () {
+  // ...
+};
+ 
+// good
+// lexical name distinguished from the variable-referenced invocation(s)
+const short = function longUniqueMoreDescriptiveLexicalFoo() {
+  // ...
+};
+```
