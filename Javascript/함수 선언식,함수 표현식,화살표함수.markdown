@@ -135,3 +135,24 @@ const short = function longUniqueMoreDescriptiveLexicalFoo() {
 };
 ```
 
+### 화살표 함수
+
+화살표함수는 함수 표현식과 호이스팅이 동일하다. 함수표현식보다 단순하고 간결한 문법으로 함수를 만들 수 있다.
+```js
+const sayApeach =()=>{
+console.log('sayApeach')
+}
+```
+
+### this
+
+function 키워드로 생성한 일반함수와 화살표 함수의 가장 큰 차이는 this다.
+
+#### 일반함수의 this
+
+자바스크립의 경우 
+
+
+
+
+
