@@ -4,22 +4,41 @@
 비동기처리는 동시에 여러 작업을 가능하게한다는 장점이 있지만, 비동기 함수가 많을 경우 어떤 코드가 먼저 실행되는지 알 수 없고 가독성이 나쁘다.
 이런 문제를 해결하기 위해 여러 비동기 프로그래밍 방법이 생겼고 크게 콜백 함수, Promise,async/await 패턴이 존재한다.
 
-## 콜백함수 
+`동기` : 요청을 보낸 후 해당 응답을 받아야 다음 동작을 실행 (ex.은행)
+`비동기` : 요청을 보낸 후 응답에 관계없이 다음 단계를 실행 (ex.카페)
+
+
 
 비동기 방식을 처리하는 방법으로 콜백함수, promise,async/await이 있다.
 
-   콜백함수는 특정 함수에 매개변수로 전달된 함수로, 함수 안에서 어떤 특정한 시점에 다시 호출되는 함수를 말한다.
+## 콜백함수 
+
+콜백은 다른 함수가 실행을 끝낸 뒤 실행되는(콜백되는) 함수를 말한다.
+자바스크립트에서 함수는 객체이다. 이 때문에 함수는 다른 함수의 인자로 쓰일 수도, 어떤 함수에 의해 리턴될 수도 있다. 이런 함수를 고차 함수라고 부르고 인자로 넘겨지는 함수를 콜백 함수라고 부른다.
+
 
 ```js
-const callbackFunction = (callback) => {
-  console.log("callbackFunction");
+function doHomework(subject) {
+  alert(`Starting my ${subject} homework.`);
+}
+```
+doHomework() 함수의 두 번째 인자로 callback을 넘겨줌으로써 콜백 함수를 추가해보자. 
+이제 우리는 doHomework() 함수를 호출할 때 두 번째 인자 자리에서 콜백 함수를 정의할 수 있다.
+
+```js
+function doHomework(subject, callback) {
+  alert(`Starting my ${subject} homework.`);
   callback();
-};
-callbackFunction(() => console.log("전달한 callback"));
+}
+
+doHomework('math', function() {
+  alert('Finished my homework');
+});
 ```
 
+
 콜백함수의 단점은 콜백지옥에 빠질 수 있다는 것.
-`콜백지옥`이란 javascript를 이용한 비동기 프로그래밍시 발생하는 문제로, 함수의 매개변수로 넘겨지는 콜백함수가 반복되어 코드의 들여쓰기 수준이 감당하기 힘들정도로 깊어지는 현상을 말한다.
+`콜백지옥`이란 javascript를 이용한 비동기 프로그래밍시 발생하는 문제로, 함수의 매개변수로 넘겨지는 콜백함수가 반복되어 코드의 들여쓰기 수준이 감당하기 힘들정도로 깊어지는 현상을 말한다. 이런 코드는 가독성이 떨어지고 코드를 수정하기 어려워진다.
 
 ##  Promise
 
@@ -31,7 +50,7 @@ promiseData.then((data) => {
   console.log(data);
 });
 ```
-
+Promise는 비동기 작업을 진행, 성공, 실패의 상태로 표현하는 자바스크립트 객체이다.
 Promise를 정의할 때에 인자값으로 resolve(res),reject(rej) 인자 값을 전달한다. 그리고 안에서 res로 어떤 값을 전달한다.
 rej는 에러를 전달한다.
 promise객체를 담은 변수에 then을 사용하여 전달받은 data를 console.log(data)로 콘솔창에 출력하는 것을 볼 수 있다.
@@ -116,3 +135,5 @@ delaySecond가 완료되길 기다렸다가 완료됐을 때 다음 순서인 re
 
 이벤트 루프는 실행 할 함수를 관리하는 역할로 콜 스택과 큐의 함수를 계속 확인한다.
 만약 콜 스택이 비어있고 큐에 대기 중인 함수가 있다면, 순차적으로 큐에 대기중인 함수를 콜스택으로 이동시킨다.
+
+참고:https://medium.com/@oasis9217/%EB%B2%88%EC%97%AD-javascript-%EB%8F%84%EB%8C%80%EC%B2%B4-%EC%BD%9C%EB%B0%B1%EC%9D%B4-%EB%AD%94%EB%8D%B0-65bb82556c56
