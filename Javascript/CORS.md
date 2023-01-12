@@ -2,7 +2,7 @@
 
 웹 브라우저는 HTTP요청에 대해서 어떤 요청을 하느냐에 따라 각기 다른 특징을 가지고 있다.예를 들면 아래와 같다.
 
-1. <img>,<video>,<script>,<link>태그는 기본적으로 Cross-origin 정책을 지원한다.
+1. `<img>,<video>,<script>,<link>` 태그는 기본적으로 Cross-origin 정책을 지원한다.
   
   다른 소스의 리소스에 접근하는 것이 가능하다.
   
