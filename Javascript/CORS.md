@@ -1,5 +1,29 @@
 ### 크로스도메인 ,CORS란??
 
+API통신을 할 때, CORS 에러가 난 경우가 몇번 있었다.
+CORS관련 이슈는 모두 CORS정책을 위반했기 때문에 발생하는 것이다.
+CORS라는 방어막이 존재하기에 우리가 이곳 저곳에서 가져오는 리소스가 안전하다는 최소한의 보장을 받을 수 있다고 한다.
+
+CORS는 Cross-Origin Resource Sharing의 줄임말로 교차 출처 리소스 공유라고 해석할 수 있다. 교차 출처는 다른 출처를 의미하는 것이다.
+
+
+#### origin 출처가 무엇인가?
+
+서버의 위치를 의미하는 https://google.com과 같은 URL들은 마치 하나의 문자열 같아 보여도, 사실은 여러 개의 구성요소로 이루어져 있다.
+
+<img src="https://velog.velcdn.com/images/chloeee/post/53b04590-29ff-4200-a32b-b15eea18dd04/image.png" width="500px" />
+
+출처는 Protocol과 Host 그리고 위 그림에는 없지만 :80, :443과 같은 포트 번호까지 모두 합친 것을 의미한다. `즉, 서버의 위치를 찾아가기 위해 필요한 가장 기본적인 것들을 합쳐놓은 곳`
+
+또한 출처 내의 포트 번호는 생략이 가능한데, 이는 각 웹에서 사용하는 HTTP, HTTPS 프로토콜의 기본 포트 번호가 정해져 있기 때문이다.
+
+#### Same Origin Policy
+
+SOP는 같은 출처에서만 리소스를 공유할 수 있다라는 규칙을 가진 정책이다.
+그러나 웹이라는 오픈 스페이스 환경에서 다른 출처에 있는 리소스를 가져와서 사용하는 일은 굉장히 흔한 일이라 무작정 막을 수 없는 노릇이니, 몇 가지 예외 조항을 두고 이 조항에 해당하는 
+리소스 요청은 출처가 다르더라도 허용하기로 했는데, 그 중 하나가 CORS 리소스 요청이다.
+
+
 웹 브라우저는 HTTP요청에 대해서 어떤 요청을 하느냐에 따라 각기 다른 특징을 가지고 있다.예를 들면 아래와 같다.
 
 1. `<img>,<video>,<script>,<link>` 태그는 기본적으로 Cross-origin 정책을 지원한다.
@@ -39,3 +63,5 @@
 
 참고: https://inpa.tistory.com/entry/WEB-%F0%9F%93%9A-CORS-%F0%9F%92%AF-%EC%A0%95%EB%A6%AC-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95-%F0%9F%91%8F#thankYou
   https://hanamon.kr/htm-xml-%EC%B0%A8%EC%9D%B4%EC%A0%90/
+  
+  https://evan-moon.github.io/2020/05/21/about-cors/
