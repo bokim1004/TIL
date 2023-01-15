@@ -36,5 +36,14 @@ JSON형식으로 주고 받는다.
 사용자가 명령을 넣는 것뿐 아니라 그 결과와 정보들을 받아오기 위한 티비의 스크린, 컴퓨터의 모니터또한 인터페이스에 속한다.
 컴퓨터와 인간의 소통을 위한 것이 User Interface라고 한다.
 
+### URI란?
+URL은 자원의 위치를 나타내고, URI는 자원의 식별자이다.
+예를 들어 http://opentutorials.org:3000/main?id=HTML&page=12 라고 되어있는 주소가 있다.
+
+여기서 http://opentutorials.org:3000/main 여기까지는 URL이고(URI이기도 한)
+http://opentutorials.org:3000/main?id=HTML&page=12 이 것은 URI라고 할 수 있다. (URL은 아닌)
+
+
+
 참고: https://www.youtube.com/watch?v=iOueE9AXDQQ
 
