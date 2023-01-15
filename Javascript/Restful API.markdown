@@ -6,8 +6,10 @@ Rest API는 인터넷 식별자 URI (Uniform Resource Identifier)와 HTTP를 기
 `Rest의 가장 중요한 특성은 각 요청이 어떤 정보나 동작을 위한 것인지, 그 요청의 모습 자체만으로 추론이 가능하다.`
 Rest는 문서, 그림, 데이터등의 자원을 이름으로 구분해서 해당 자원에 대한 상태, 정보를 주고받는 것을 의미한다.
 
-또한 HTTP Method를 활용해서 해당 자원에 대한 CRUD를 적용하는 것을 의미한다.
-Rest API에서는 다양한 HTTP Method중에서도 (Get,Post,Put,Delete,Patch)
+Restful하게 만든 API는 요청을 보내는 주소만으로도 대략 이게 뭘하는 요청인지 파악이 가능하다.
+서버에 Rest API로 요청을 보낼 때는 HTTP라는 규약에 따라 신호를 전송한다,
+Rest API에서는 다양한 HTTP Method중에서도 (Get,Post,Put,Delete,Patch)4가지 혹은 5가지를 사용한다.
+
 <br/>
 API만들 때, 데이터를 주고받는 기능도 함께 넣는다.
 Restful API에서는 CRUD를 하나의 주소로 관리한다.
@@ -15,10 +17,9 @@ Restful API에서는 CRUD를 하나의 주소로 관리한다.
 > Create(생성): POST,
 > Read(불러와줘):Get,
 > Update(바꿔줘):Put(전체),
-> patch(일부), Delete(지워줘):DELETE
+> patch(일부만 변경), Delete(지워줘):DELETE
 
-Rest API는 HTTP요청을 할 때, 어떤 URI에 어떤 method를 사용할지에 대한 개발자들 사이에서 사용되어지는 약속이다.
-
+**결국, Rest API는 HTTP요청을 할 때, 어떤 URI에 어떤 method를 사용할지에 대한 개발자들 사이에서 사용되어지는 약속이다.**
 클라이언트는 서버로 다양한 형식을 통해 정보를 보낼 수 있다. 현재 가장 유명한
 형식은 JSON이다. JSON은 중괄호로 시작하며 key,value로 이루어져있다.
 
