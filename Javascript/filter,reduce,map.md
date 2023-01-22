@@ -34,4 +34,16 @@ console.log(sumWithInitial);
 3. 현재 인덱스(idx)
 4. 원본 배열(src)
 
-리듀서 함수의 반환값은 누
+리듀서 함수의 반환값은 누산기에 할당되고, 누산기는 순회 중 유지되므로 결국 최종결과는 하나의 값이 된다.
+
+`arr.reduce(callback[, initialValue])`
+
+callback: 배열의 각 요소에 대해 실행할 함수, 다음 네가지 인수를 받는다
+accumulator: 누산기는 콜백의 반환값을 누적한다.콜백의 첫 번째 호출이면서 initialValue를 제공한 경우에 initialValue의 값이다.
+currentValue: 처리할 현재요소
+currentIndex: 처리할 현재 요소의 인덱스
+
+reduce()는 빈 요소를 제외하고 배열 
+
+
+
