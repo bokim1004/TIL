@@ -47,5 +47,14 @@ currentIndex: 처리할 현재 요소의 인덱스
 reduce()는 빈 요소를 제외하고 배열 내에 존재하는 각 요소에 대해 callback함수를 한번씩 실행하는데, 콜백함수는 네 인수를 받는다(accumulator,currentValue,currentIndex,array)
 
 
+### Array.prototype.map()
 
+map()메서드는 배열 내의 모든 요소 각각에 대하여 주어진 함수를 호출하여 결과를 모아 새로운 배열을 반환한다.
+반복문을 돌며 배열 안의 요소들을 1대1로 짝지어준다.
 
+```js
+result = oneTwoThree.map((v) => {
+  return v + 1;
+});
+result; // [2, 3, 4]
+```
