@@ -39,3 +39,12 @@ return () =>{
 
 ```
 매 렌더마다 interval을 클린한다. 메모리에 자리를 항상 차지하지 않게 된다
+
+
+### useEffect 2번 호출
+
+api call을 하는 함수를 하나 작성했고, 그것을 useEffect 빈 배열로 호출이 되게 해주었다.
+그런데 React 18부터 development with StrictMode에서는 useEffect가 2번 호출된다고 한다.
+
+production에서는 이런 현상이 없다고 한다. 그것도 모르고 왜 자꾸 api호출이 2번되지 찾아보고 있었네 ㅠㅠ..
+
