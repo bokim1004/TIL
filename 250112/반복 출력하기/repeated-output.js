@@ -3,4 +3,5 @@ function getData (n) {
         process.stdout.write("12345^&*()_\n");
     }
 }
-getData(4)
+const number = 4
+getData(number)
